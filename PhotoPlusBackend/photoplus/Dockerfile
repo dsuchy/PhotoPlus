@@ -8,7 +8,9 @@ COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
 COPY src src
-RUN chmod +x ./mvnw
+
+# Fix line endings and ensure execute permissions
+RUN apt-get update && apt-get install -y dos2unix && dos2unix ./mvnw && chmod +x ./mvnw
 
 #Download dependencies and pack to jar.
 RUN ./mvnw clean install package -DskipTests=true
