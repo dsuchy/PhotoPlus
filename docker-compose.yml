@@ -7,6 +7,8 @@ services:
     environment:
       - MYSQL_DATABASE=photoplusdb
       - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - "3306:3306"
     restart: always
 
   photoplus_service:
@@ -40,7 +42,7 @@ services:
     depends_on:
       - database-service
     ports:
-      - 8000:80
+      - "8000:80"
 
   angular_service:
     build:

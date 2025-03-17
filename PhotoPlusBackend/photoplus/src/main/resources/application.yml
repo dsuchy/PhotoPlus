@@ -2,12 +2,13 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
 
   main:
     allow-bean-definition-overriding: true
 
-    properties:
-      dialect: org.hibernate.dialect.MySQL8Dialect
   profiles:
     active: "dev"
 
@@ -34,9 +35,9 @@ spring:
       on-profile: dev
 
   datasource:
-    url: jdbc:mysql://localhost:3306/photoPlusDB?useSSL=false&serverTimezone=Europe/Warsaw
+    url: jdbc:mysql://localhost:3306/photoplusdb?useSSL=false&serverTimezone=Europe/Warsaw&allowPublicKeyRetrieval=true
     username: root
-    password: pass
+    password: root
 
 server:
   port: 8090
