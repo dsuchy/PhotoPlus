@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { PageSelectComponent } from './page-select.component';
 
@@ -6,7 +6,7 @@ describe('PageSelectComponent', () => {
   let component: PageSelectComponent;
   let fixture: ComponentFixture<PageSelectComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ PageSelectComponent ]
     })
