@@ -37,8 +37,8 @@ public class SpringSecurityConfig
     private final ObjectMapper objectMapper;
     private final TokenHoldingService tokenHoldingService;
 
-    public SpringSecurityConfig(final UserDetailsServiceImpl userDetailsService, final UserRepository userRepository, 
-                               final ModelPropertiesService modelPropertiesService, final ObjectMapper objectMapper, 
+    public SpringSecurityConfig(final UserDetailsServiceImpl userDetailsService, final UserRepository userRepository,
+                               final ModelPropertiesService modelPropertiesService, final ObjectMapper objectMapper,
                                final TokenHoldingService tokenHoldingService)
     {
         this.userDetailsService = userDetailsService;

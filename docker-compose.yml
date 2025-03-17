@@ -7,9 +7,9 @@ services:
     environment:
       - MYSQL_DATABASE=photoplusdb
       - MYSQL_ROOT_PASSWORD=root
+    restart: always
     ports:
       - "3306:3306"
-    restart: always
 
   photoplus_service:
     build:
