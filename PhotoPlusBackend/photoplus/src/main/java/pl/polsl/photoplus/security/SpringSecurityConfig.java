@@ -5,10 +5,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,7 +25,7 @@ import pl.polsl.photoplus.security.custom.CustomUsernamePasswordAuthenticationFi
 import pl.polsl.photoplus.security.services.TokenHoldingService;
 import pl.polsl.photoplus.security.services.UserDetailsServiceImpl;
 
-import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -55,22 +55,19 @@ public class SpringSecurityConfig
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authenticationManager) throws Exception {
-        http.cors()
-                .and()
-                .csrf()
-                .disable()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .addFilter(new CustomUsernamePasswordAuthenticationFilter(objectMapper, modelPropertiesService, tokenHoldingService, authenticationManager))
-                .addFilter(new CustomBasicAuthenticationFilter(authenticationManager, userRepository, modelPropertiesService, tokenHoldingService))
-                .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/login").permitAll()
-                        .requestMatchers("/logout").permitAll()
-                        .requestMatchers("/**").permitAll())
-                .logout(logout -> logout
-                        .addLogoutHandler(new CustomLogoutHandler())
-                        .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler(HttpStatus.OK)));
+        http
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+            .csrf(AbstractHttpConfigurer::disable)
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .addFilter(new CustomUsernamePasswordAuthenticationFilter(objectMapper, modelPropertiesService, tokenHoldingService, authenticationManager))
+            .addFilter(new CustomBasicAuthenticationFilter(authenticationManager, userRepository, modelPropertiesService, tokenHoldingService))
+            .authorizeHttpRequests(authorize -> authorize
+                    .requestMatchers("/login").permitAll()
+                    .requestMatchers("/logout").permitAll()
+                    .requestMatchers("/**").permitAll())
+            .logout(logout -> logout
+                    .addLogoutHandler(new CustomLogoutHandler())
+                    .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler(HttpStatus.OK)));
         
         return http.build();
     }
@@ -83,10 +80,10 @@ public class SpringSecurityConfig
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         final CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("*"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(Arrays.asList("authorization", "content-type", "x-auth-token", "Location", "Entity-Code"));
-        configuration.setExposedHeaders(Arrays.asList("x-auth-token", "Location", "Entity-Code"));
+        configuration.setAllowedOrigins(List.of("*"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("authorization", "content-type", "x-auth-token", "Location", "Entity-Code"));
+        configuration.setExposedHeaders(List.of("x-auth-token", "Location", "Entity-Code"));
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;

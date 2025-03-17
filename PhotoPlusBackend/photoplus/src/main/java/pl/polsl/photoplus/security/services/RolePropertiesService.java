@@ -58,6 +58,11 @@ public class RolePropertiesService
         try {
             final InputStream roleInputStream = new ClassPathResource(PROP_FILE).getInputStream();
             final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+            
+            // Add security features to prevent XXE attacks
+            documentBuilderFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+            documentBuilderFactory.setXIncludeAware(false);
+            documentBuilderFactory.setExpandEntityReferences(false);
 
             final DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             //Create DOM for file
