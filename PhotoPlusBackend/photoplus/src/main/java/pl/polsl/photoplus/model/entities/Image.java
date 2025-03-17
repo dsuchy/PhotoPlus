@@ -7,7 +7,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import pl.polsl.photoplus.annotations.Patchable;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity(name = "images")
 @Table(name = "images")

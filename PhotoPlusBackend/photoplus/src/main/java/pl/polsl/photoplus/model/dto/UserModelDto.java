@@ -14,9 +14,9 @@ import pl.polsl.photoplus.annotations.validators.ValueOfEnum;
 import pl.polsl.photoplus.model.enums.UserRole;
 import pl.polsl.photoplus.services.controllers.UserService;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 @JsonPropertyOrder({"login", "password", "name", "surname", "email"})
 @JsonIgnoreProperties(ignoreUnknown = true)

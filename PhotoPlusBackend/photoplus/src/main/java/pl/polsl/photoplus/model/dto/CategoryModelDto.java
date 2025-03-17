@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import pl.polsl.photoplus.annotations.Patchable;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 @Setter
 @Getter

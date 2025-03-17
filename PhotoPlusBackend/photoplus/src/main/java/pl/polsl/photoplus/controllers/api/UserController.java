@@ -11,7 +11,7 @@ import pl.polsl.photoplus.services.controllers.AddressService;
 import pl.polsl.photoplus.services.controllers.UserService;
 import pl.polsl.photoplus.services.controllers.exceptions.CannotDeleteUserException;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 

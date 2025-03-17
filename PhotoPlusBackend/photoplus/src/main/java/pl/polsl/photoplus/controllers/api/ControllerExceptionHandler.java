@@ -21,8 +21,8 @@ import pl.polsl.photoplus.services.controllers.exceptions.NotEnoughProductsExcep
 import pl.polsl.photoplus.services.controllers.exceptions.NotFoundException;
 import pl.polsl.photoplus.services.controllers.exceptions.PatchException;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

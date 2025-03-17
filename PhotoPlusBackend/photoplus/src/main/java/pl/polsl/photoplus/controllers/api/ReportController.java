@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.polsl.photoplus.annotations.validators.Date;
 import pl.polsl.photoplus.services.controllers.*;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Validated

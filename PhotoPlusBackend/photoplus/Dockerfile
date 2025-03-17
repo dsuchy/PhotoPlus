@@ -1,5 +1,5 @@
 ##Building JAR##
-FROM openjdk:11-jdk-slim as build
+FROM eclipse-temurin:21-jdk-jammy as build
 MAINTAINER latusikl
 #mkdir + cd
 WORKDIR /usr/local/app
@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y dos2unix && dos2unix ./mvnw && chmod +x
 RUN ./mvnw clean install package -DskipTests=true
 
 #Create final container.
-FROM openjdk:11-jdk-buster as production
+FROM eclipse-temurin:21-jdk-jammy as production
 
 WORKDIR /usr/local/prod
 ARG JAR_FILE=/usr/local/app/target/photoPlussApp.jar
