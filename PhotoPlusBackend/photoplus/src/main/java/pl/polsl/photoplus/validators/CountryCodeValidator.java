@@ -2,8 +2,8 @@ package pl.polsl.photoplus.validators;
 
 import pl.polsl.photoplus.annotations.validators.CountryCode;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 import java.util.Locale;
 import java.util.Set;
 

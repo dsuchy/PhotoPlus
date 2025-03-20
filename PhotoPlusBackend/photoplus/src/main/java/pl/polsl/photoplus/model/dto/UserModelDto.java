@@ -6,17 +6,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Length;
-import pl.polsl.photoplus.annotations.Patchable;
+import jakarta.validation.constraints.Size;import pl.polsl.photoplus.annotations.Patchable;
 import pl.polsl.photoplus.annotations.validators.OnlyLetters;
 import pl.polsl.photoplus.annotations.validators.Unique;
 import pl.polsl.photoplus.annotations.validators.ValueOfEnum;
 import pl.polsl.photoplus.model.enums.UserRole;
 import pl.polsl.photoplus.services.controllers.UserService;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 @JsonPropertyOrder({"login", "password", "name", "surname", "email"})
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -28,13 +27,13 @@ public class UserModelDto
 
     @JsonProperty("login")
     @NotBlank(message = "Login is mandatory.")
-    @Length(min = 5, max = 12, message = "Login should be longer than 4 and shorter than 13 signs.")
+    @Size(min = 5, max = 12, message = "Login should be longer than 4 and shorter than 13 signs.")
     @Unique(service = UserService.class, fieldName = "login", fieldNameToBeDisplayed = "Login")
     private String login;
 
     @JsonProperty("email")
     @Email(message = "Email address is taken or not valid.")
-    @Length(min = 5, max = 30, message = "Email should be longer than 4 and shorter than 31 signs.")
+    @Size(min = 5, max = 30, message = "Email should be longer than 4 and shorter than 31 signs.")
     @NotBlank(message = "Email is mandatory.")
     @Unique(service = UserService.class, fieldName = "email", fieldNameToBeDisplayed = "E-mail address")
     @Patchable
@@ -43,20 +42,20 @@ public class UserModelDto
     @JsonProperty("name")
     @NotBlank(message = "Name is mandatory.")
     @OnlyLetters(message = "Invalid name. Only letters are allowed.")
-    @Length(min = 2, max = 15, message = "Name should be longer than 1 and shorter than 16 signs.")
+    @Size(min = 2, max = 15, message = "Name should be longer than 1 and shorter than 16 signs.")
     @Patchable
     private String name;
 
     @JsonProperty("surname")
     @NotBlank(message = "Surname is mandatory.")
     @Pattern(regexp = "^[\\p{L} .'-]+$", message = "Invalid surname.")
-    @Length(min = 2, max = 30, message = "Surname should be longer than 1 and shorter than 31 signs.")
+    @Size(min = 2, max = 30, message = "Surname should be longer than 1 and shorter than 31 signs.")
     @Patchable
     private String surname;
 
     @JsonProperty("password")
     @NotBlank(message = "Password is mandatory.")
-    @Length(min = 5, max = 30, message = "Password should be longer than 4 and shorter than 31 signs.")
+    @Size(min = 5, max = 30, message = "Password should be longer than 4 and shorter than 31 signs.")
     @Patchable
     private String password;
 

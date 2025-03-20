@@ -11,8 +11,8 @@ import pl.polsl.photoplus.annotations.validators.ValueOfEnum;
 import pl.polsl.photoplus.model.enums.OrderStatus;
 import pl.polsl.photoplus.model.enums.PaymentMethod;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Setter

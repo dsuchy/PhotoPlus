@@ -4,8 +4,8 @@ import pl.polsl.photoplus.annotations.validators.Unique;
 import pl.polsl.photoplus.components.ContextProvider;
 import pl.polsl.photoplus.services.controllers.FieldValueExists;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
 public class UniqueValidator
         implements ConstraintValidator<Unique,String>

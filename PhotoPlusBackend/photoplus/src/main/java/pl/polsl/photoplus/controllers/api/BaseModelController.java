@@ -17,7 +17,7 @@ import pl.polsl.photoplus.security.services.PermissionEvaluatorService;
 import pl.polsl.photoplus.services.controllers.AbstractModelService;
 import pl.polsl.photoplus.services.controllers.ModelService;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.net.URI;
 import java.util.Collection;
 import java.util.List;

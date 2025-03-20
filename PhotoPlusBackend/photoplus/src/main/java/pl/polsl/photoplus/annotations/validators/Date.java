@@ -2,8 +2,8 @@ package pl.polsl.photoplus.annotations.validators;
 
 import pl.polsl.photoplus.validators.DateValidator;
 
-import javax.validation.Constraint;
-import javax.validation.Payload;
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
 import java.lang.annotation.*;
 
 @Documented

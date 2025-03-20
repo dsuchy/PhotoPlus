@@ -8,6 +8,8 @@ services:
       - MYSQL_DATABASE=photoplusdb
       - MYSQL_ROOT_PASSWORD=root
     restart: always
+    ports:
+      - "3306:3306"
 
   photoplus_service:
     build:
@@ -40,7 +42,7 @@ services:
     depends_on:
       - database-service
     ports:
-      - 8000:80
+      - "8000:80"
 
   angular_service:
     build:

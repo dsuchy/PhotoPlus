@@ -8,7 +8,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -58,6 +58,11 @@ public class RolePropertiesService
         try {
             final InputStream roleInputStream = new ClassPathResource(PROP_FILE).getInputStream();
             final DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+            
+            // Add security features to prevent XXE attacks
+            documentBuilderFactory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+            documentBuilderFactory.setXIncludeAware(false);
+            documentBuilderFactory.setExpandEntityReferences(false);
 
             final DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
             //Create DOM for file

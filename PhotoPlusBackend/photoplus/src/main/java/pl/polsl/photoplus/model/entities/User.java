@@ -13,11 +13,11 @@ import pl.polsl.photoplus.components.ContextProvider;
 import pl.polsl.photoplus.model.enums.UserRole;
 import pl.polsl.photoplus.security.services.RolePropertiesService;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

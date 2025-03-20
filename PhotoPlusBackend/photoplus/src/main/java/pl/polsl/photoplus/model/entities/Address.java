@@ -8,10 +8,10 @@ import org.hibernate.annotations.OnDeleteAction;
 import pl.polsl.photoplus.annotations.Patchable;
 import pl.polsl.photoplus.annotations.validators.CountryCode;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity(name = "addresses")
 @Table(name = "addresses")

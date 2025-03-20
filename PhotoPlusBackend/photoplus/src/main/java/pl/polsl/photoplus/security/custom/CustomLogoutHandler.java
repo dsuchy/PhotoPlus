@@ -7,8 +7,8 @@ import pl.polsl.photoplus.components.ContextProvider;
 import pl.polsl.photoplus.components.ModelPropertiesService;
 import pl.polsl.photoplus.security.services.TokenHoldingService;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.util.Optional;
 
 @Slf4j

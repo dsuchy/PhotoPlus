@@ -5,9 +5,9 @@ import org.springframework.stereotype.Service;
 import pl.polsl.photoplus.annotations.Patchable;
 import pl.polsl.photoplus.services.controllers.exceptions.PatchException;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

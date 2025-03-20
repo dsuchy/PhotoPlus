@@ -16,7 +16,7 @@ import pl.polsl.photoplus.model.entities.Product;
 import pl.polsl.photoplus.model.enums.OrderStatus;
 import pl.polsl.photoplus.repositories.OrderItemRepository;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
