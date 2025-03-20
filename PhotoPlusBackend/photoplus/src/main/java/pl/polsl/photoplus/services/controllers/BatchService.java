@@ -8,7 +8,7 @@ import pl.polsl.photoplus.model.entities.Product;
 import pl.polsl.photoplus.repositories.BatchRepository;
 import pl.polsl.photoplus.services.controllers.exceptions.NotEnoughProductsException;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import java.util.List;
 
 @Service

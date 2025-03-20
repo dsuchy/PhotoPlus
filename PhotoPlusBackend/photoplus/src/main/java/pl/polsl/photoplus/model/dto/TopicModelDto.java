@@ -10,8 +10,8 @@ import pl.polsl.photoplus.components.ContextProvider;
 import pl.polsl.photoplus.model.entities.Section;
 import pl.polsl.photoplus.services.controllers.SectionService;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Getter
