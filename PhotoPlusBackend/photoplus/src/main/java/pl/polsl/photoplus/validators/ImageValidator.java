@@ -5,8 +5,8 @@ import org.apache.tika.Tika;
 import org.springframework.web.multipart.MultipartFile;
 import pl.polsl.photoplus.annotations.validators.Image;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 import java.io.IOException;
 
 /**

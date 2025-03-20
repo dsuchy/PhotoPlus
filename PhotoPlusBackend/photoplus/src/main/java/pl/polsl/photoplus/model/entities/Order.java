@@ -7,7 +7,7 @@ import pl.polsl.photoplus.annotations.Patchable;
 import pl.polsl.photoplus.model.enums.OrderStatus;
 import pl.polsl.photoplus.model.enums.PaymentMethod;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity(name = "orders")

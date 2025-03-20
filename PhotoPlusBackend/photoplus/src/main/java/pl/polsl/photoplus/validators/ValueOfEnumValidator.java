@@ -2,8 +2,8 @@ package pl.polsl.photoplus.validators;
 
 import pl.polsl.photoplus.annotations.validators.ValueOfEnum;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

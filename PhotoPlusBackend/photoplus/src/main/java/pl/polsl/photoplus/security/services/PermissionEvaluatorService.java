@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import pl.polsl.photoplus.model.entities.User;
 import pl.polsl.photoplus.repositories.UserRepository;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.util.List;
 import java.util.Optional;
 
